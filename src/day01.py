@@ -1,9 +1,10 @@
 import sys
 from collections import deque
+from pathlib import Path
 from typing import Generator
 from util.util import read_lines
 
-filename = '../input/day01'
+filename = Path(__file__).stem
 
 
 def count_increasing_sliding_windows(in_data: Generator[str, None, None], window_size: int) -> int:
