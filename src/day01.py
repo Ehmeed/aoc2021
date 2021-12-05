@@ -2,12 +2,11 @@ import sys
 from collections import deque
 from pathlib import Path
 from typing import Generator
-from util.util import read_lines
 
 filename = Path(__file__).stem
 
 
-def count_increasing_sliding_windows(in_data: Generator[str, None, None], window_size: int) -> int:
+def sonar_sweep(in_data: Generator[str, None, None], window_size: int) -> int:
     queue = deque()
     n_increases = 0
     last_sum = sys.maxsize
@@ -21,8 +20,3 @@ def count_increasing_sliding_windows(in_data: Generator[str, None, None], window
             queue.popleft()
 
     return n_increases
-
-
-if __name__ == "__main__":
-    print(count_increasing_sliding_windows(in_data=read_lines(filename), window_size=1))
-    print(count_increasing_sliding_windows(in_data=read_lines(filename), window_size=3))

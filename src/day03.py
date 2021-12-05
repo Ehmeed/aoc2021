@@ -2,8 +2,6 @@ from pathlib import Path
 from typing import Generator
 from collections import defaultdict
 
-from util.util import read_lines
-
 filename = Path(__file__).stem
 
 
@@ -56,8 +54,3 @@ def _do_filter(lines, invert=False):
         n += 1
     assert len(lines) == 1
     return lines[0]
-
-
-if __name__ == "__main__":
-    print(binary_diagnostic(read_lines(filename)))
-    print(binary_diagnostic_oxygen(read_lines(filename)))

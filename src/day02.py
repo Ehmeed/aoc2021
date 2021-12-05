@@ -2,14 +2,12 @@ from pathlib import Path
 from typing import Generator
 import re
 
-from util.util import read_lines
-
 filename = Path(__file__).stem
 
 _command_pattern = re.compile("([a-z]+) ([0-9]+)")
 
 
-def final_position_multiplied(in_data: Generator[str, None, None]) -> int:
+def dive(in_data: Generator[str, None, None]) -> int:
     x, y = 0, 0
     for line in in_data:
         match = _command_pattern.match(line)
@@ -26,7 +24,7 @@ def final_position_multiplied(in_data: Generator[str, None, None]) -> int:
     return x * y
 
 
-def final_position_multiplied_with_aim(in_data: Generator[str, None, None]) -> int:
+def dive_with_aim(in_data: Generator[str, None, None]) -> int:
     x, y, aim = 0, 0, 0
     for line in in_data:
         match = _command_pattern.match(line)
@@ -42,8 +40,3 @@ def final_position_multiplied_with_aim(in_data: Generator[str, None, None]) -> i
         elif command == "up":
             aim -= length
     return x * y
-
-
-if __name__ == "__main__":
-    print(final_position_multiplied(read_lines(filename)))
-    print(final_position_multiplied_with_aim(read_lines(filename)))

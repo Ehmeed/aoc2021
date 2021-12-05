@@ -1,17 +1,9 @@
-from pathlib import Path
 from typing import Generator
-
-from util.util import read_lines
-
-filename = Path(__file__).stem
-# filename = 'test_day04'
 
 
 def giant_squid(in_data: Generator[str, None, None], last_wins=False) -> int:
     rows = 5
-    with open('/home/ehmeed/repos/aoc2021/input/' + filename) as file:
-        lines = file.readlines()
-    lines = [line.rstrip() for line in lines]
+    lines = [it.rstrip() for it in in_data]
     numbers = list(map(int, lines[0].split(",")))
 
     boards = []
@@ -72,8 +64,3 @@ def _load_board(in_data) -> list[list[int]]:
             break
         board.append(list(map(int, [it for it in line.split(" ") if it])))
     return board
-
-
-if __name__ == "__main__":
-    print(giant_squid(read_lines(filename)))
-    print(giant_squid(read_lines(filename), last_wins=True))
