@@ -1,9 +1,5 @@
-from pathlib import Path
 from typing import Generator
 from collections import defaultdict
-
-filename = Path(__file__).stem
-
 
 def binary_diagnostic(in_data: Generator[str, None, None]) -> int:
     counter = defaultdict(int)

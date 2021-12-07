@@ -3,8 +3,6 @@ from collections import deque
 from pathlib import Path
 from typing import Generator
 
-filename = Path(__file__).stem
-
 
 def sonar_sweep(in_data: Generator[str, None, None], window_size: int) -> int:
     queue = deque()

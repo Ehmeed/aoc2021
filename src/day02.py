@@ -2,8 +2,6 @@ from pathlib import Path
 from typing import Generator
 import re
 
-filename = Path(__file__).stem
-
 _command_pattern = re.compile("([a-z]+) ([0-9]+)")
 
 
