@@ -21,6 +21,7 @@ def smoke_basin(in_data: Generator[str, None, None]) -> int:
             s += p + 1
     return s
 
+
 def smoke_basin_sizes(in_data: Generator[str, None, None]) -> int:
     lines = []
     basins = []
@@ -40,6 +41,7 @@ def smoke_basin_sizes(in_data: Generator[str, None, None]) -> int:
             basins.append(len(_flood(x, y, lines)))
 
     return reduce(lambda a,b: a*b, sorted(basins)[-3:])
+
 
 def _flood(x, y, lines):
     p = lines[x][y]
